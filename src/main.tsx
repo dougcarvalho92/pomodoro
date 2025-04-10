@@ -4,7 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App.tsx";
 import "./assets/css/global.css";
 import "./assets/css/theme.css";
+import About from "./pages/About/index.tsx";
 import Home from "./pages/Home.tsx";
+import { NotFound } from "./pages/NotFound/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -25,9 +27,10 @@ const router = createBrowserRouter([
       },
       {
         path: "about-pomodoro",
-        element: <h1>About</h1>,
+        element: <About />,
       },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
