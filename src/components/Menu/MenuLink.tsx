@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./styles.module.css";
 import { LucideProps } from "lucide-react";
-type MenuLinkProps = {
+import React from "react";
+import { LinkProps } from "react-router";
+import styles from "./styles.module.css";
+type MenuLinkProps = LinkProps & {
   Icon: React.ComponentType<LucideProps>;
-  to: string;
 };
-export default function MenuLink({ Icon, to }: MenuLinkProps) {
+export default function MenuLink({ Icon, ...props }: MenuLinkProps) {
   return (
-    <a className={styles.menu__link} href={to}>
+    <a className={styles.menu__link} {...props}>
       <Icon />
     </a>
   );
