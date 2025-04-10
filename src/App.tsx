@@ -15,8 +15,7 @@ function App() {
         <Menu.Link Icon={SettingsIcon} to='settings' />
         <Menu.Link Icon={SunIcon} to='about-pomodoro' />
       </Menu.Nav>
-      <Outlet></Outlet>
-
+      <Outlet />
       <Footer />
     </Container>
   );

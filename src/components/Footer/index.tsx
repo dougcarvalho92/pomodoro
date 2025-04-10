@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { APP_NAME } from "../../contants";
 import styles from "./styles.module.css";
 
 export function Footer() {
@@ -8,7 +9,7 @@ export function Footer() {
         Entenda como funciona a técnica pomodoro
       </Link>
       <Link to='/'>
-        Chronos Pomodoro &copy; {new Date().getFullYear()} - Feito com 💚
+        {APP_NAME} Pomodoro &copy; {new Date().getFullYear()} - Feito com 💚
       </Link>
     </footer>
   );

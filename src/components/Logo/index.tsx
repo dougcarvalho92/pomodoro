@@ -1,4 +1,5 @@
 import { TimerIcon } from "lucide-react";
+import { APP_NAME } from "../../contants";
 import styles from "./styles.module.css";
 
 export default function Logo() {
@@ -6,7 +7,7 @@ export default function Logo() {
     <div className={styles.logo}>
       <a href='#' className={styles.logo__link}>
         <TimerIcon />
-        Focusly
+        {APP_NAME}
       </a>
     </div>
   );
