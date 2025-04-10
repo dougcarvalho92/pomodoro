@@ -1,18 +1,17 @@
-export type Task = {
+export type TaskModel = {
   id: string;
   name: string;
   duration: number;
   startDate: number;
   completeDate: number | null; // quando o timer chega ao final
   interruptDate: number | null; // quando a task for interrompida
-  type: keyof TaskState["config"];
+  type: keyof TaskStateModel["config"];
 };
-
-export type TaskState = {
-  tasks: Task[];
+export type TaskStateModel = {
+  tasks: TaskModel[];
   secondsRemaining: number;
   formattedSecondsRemaining: string;
-  activeTask: Task | null;
+  activeTask: TaskModel | null;
   currentCycle: number; // 1 a 8
   config: {
     workTime: number;
@@ -29,3 +28,32 @@ export enum TaskActionTypes {
   COMPLETE_TASK = "COMPLETE_TASK",
   CHANGE_SETTINGS = "CHANGE_SETTINGS",
 }
+
+export type TaskActionsWithPayload =
+  | {
+      type: TaskActionTypes.START_TASK;
+      payload: TaskModel;
+    }
+  | {
+      type: TaskActionTypes.COUNT_DOWN;
+      payload: { secondsRemaining: number };
+    }
+  | {
+      type: TaskActionTypes.CHANGE_SETTINGS;
+      payload: TaskStateModel["config"];
+    };
+
+export type TaskActionsWithoutPayload =
+  | {
+      type: TaskActionTypes.RESET_STATE;
+    }
+  | {
+      type: TaskActionTypes.INTERRUPT_TASK;
+    }
+  | {
+      type: TaskActionTypes.COMPLETE_TASK;
+    };
+
+export type TaskActionModel =
+  | TaskActionsWithPayload
+  | TaskActionsWithoutPayload;
