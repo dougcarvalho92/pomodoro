@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App";
 import { MessagesContainer } from "./components/MessagesContainer";
-import { TaskContextProvider } from "./context/TaskContext/TaskContextProvider";
+import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import { NotFound } from "./pages/NotFound";

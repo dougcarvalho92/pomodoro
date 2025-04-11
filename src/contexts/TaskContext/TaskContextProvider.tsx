@@ -4,7 +4,7 @@ import { TaskStateModel } from "../../types";
 import { loadBeep } from "../../utils/loadBeep";
 import { TimerWorkerManager } from "../../workers/TimerWorkerManager";
 import { TaskActionTypes } from "./actions";
-import { initialTaskState } from "./initalState";
+import { initialTaskState } from "./initialState";
 import { taskReducer } from "./reducers";
 import { TaskContext } from "./TaskContext";
 
@@ -58,7 +58,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
       worker.terminate();
     }
 
-    document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
+    document.title = `${state.formattedSecondsRemaining} - Focusly Pomodoro`;
 
     worker.postMessage(state);
   }, [worker, state]);

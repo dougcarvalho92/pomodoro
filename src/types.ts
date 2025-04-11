@@ -57,3 +57,8 @@ export type TaskActionsWithoutPayload =
 export type TaskActionModel =
   | TaskActionsWithPayload
   | TaskActionsWithoutPayload;
+
+export type TaskContextProps = {
+  state: TaskStateModel;
+  dispatch: React.Dispatch<TaskActionModel>;
+};

@@ -1,17 +1,27 @@
 import { PlayCircleIcon } from "lucide-react";
+import { useRef } from "react";
 import CountDown from "../components/CountDown";
 import Cycles from "../components/Cycles";
 import Form from "../components/Form";
+import { useTaskContext } from "../contexts/TaskContext/useTaskContext";
 
 export default function Home() {
+  const { dispatch } = useTaskContext();
+  const taskInput = useRef<HTMLInputElement>(null);
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    console.log(taskInput.current?.value);
+  }
   return (
     <div className='Home'>
       <CountDown />
-      <Form.Root>
+      <Form.Root onSubmit={handleSubmit}>
         <Form.Input
           id='task'
           label='O que irá fazer?'
           placeholder='Ex: Estudar programação'
+          name='task'
+          ref={taskInput}
         />
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
 
