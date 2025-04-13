@@ -12,6 +12,7 @@ import Cycles from "../Cycles";
 
 import Form from "../Form";
 import Input from "../Input";
+import { Tips } from "../Tips";
 
 export default function TaskForm() {
   const { state, dispatch } = useTaskContext();
@@ -19,6 +20,12 @@ export default function TaskForm() {
 
   const nextCycle = getNextCycle(state.currentCycle);
   const nextCycleType = getNextCycleType(nextCycle);
+  const cycleStep = Array.from({ length: state.currentCycle });
+  const cycleDescriptionMap = {
+    workTime: "foco",
+    shortBreakTime: "decanso curto",
+    longBreakTime: "descanso longo",
+  };
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,36 +67,22 @@ export default function TaskForm() {
         name='task'
         ref={taskInput}
       />
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      <Tips />
 
       <Cycles.Root>
         <Cycles.Header />
         <Cycles.List>
-          <Cycles.Dot
-            title='Cycle 1'
-            status='workTime'
-            description='First cycle completed'
-          />
-          <Cycles.Dot
-            title='Cycle 2'
-            status='shortBreakTime'
-            description='Currently working on second cycle'
-          />
-          <Cycles.Dot
-            title='Cycle 3'
-            status='workTime'
-            description='Third cycle pending'
-          />
-          <Cycles.Dot
-            title='Cycle 4'
-            status='shortBreakTime'
-            description='Third cycle pending'
-          />
-          <Cycles.Dot
-            title='Cycle 5'
-            status='longBreakTime'
-            description='Fourth cycle pending'
-          />
+          {cycleStep.map((_, index) => {
+            const nextCycle = getNextCycle(index);
+            const nextCycleType = getNextCycleType(nextCycle);
+            return (
+              <Cycles.Dot
+                title={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+                status={nextCycleType}
+                description={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+              />
+            );
+          })}
         </Cycles.List>
       </Cycles.Root>
 
