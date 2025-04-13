@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import Container from "../../components/Container";
 import Heading from "../../components/Heading";
 
+import Form from "../../components/Form";
 import Input from "../../components/Input";
 import { APP_NAME } from "../../constants";
 import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
@@ -68,47 +69,42 @@ export function Settings() {
     <Container>
       <Heading>Configurações</Heading>
 
-      <p style={{ textAlign: "center" }}>
+      <p style={{ textAlign: "center", marginBottom: 30 }}>
         Modifique as configurações para tempo de foco, descanso curso e descanso
         longo.
       </p>
 
-      <form onSubmit={handleSaveSettings} action='' className='form'>
-        <div className='formRow'>
-          <Input
-            id='workTime'
-            label='Foco'
-            ref={workTimeInput}
-            defaultValue={state.config.workTime}
-            type='number'
-          />
-        </div>
-        <div className='formRow'>
-          <Input
-            id='shortBreakTime'
-            label='Descanso curto'
-            ref={shortBreakTimeInput}
-            defaultValue={state.config.shortBreakTime}
-            type='number'
-          />
-        </div>
-        <div className='formRow'>
-          <Input
-            id='longBreakTime'
-            label='Descanso longo'
-            ref={longBreakTimeInput}
-            defaultValue={state.config.longBreakTime}
-            type='number'
-          />
-        </div>
-        <div className='formRow'>
-          <Button
-            icon={<SaveIcon />}
-            aria-label='Salvar configurações'
-            title='Salvar configurações'
-          />
-        </div>
-      </form>
+      <Form onSubmit={handleSaveSettings} action=''>
+        <Input
+          id='workTime'
+          label='Foco'
+          ref={workTimeInput}
+          defaultValue={state.config.workTime}
+          type='number'
+        />
+
+        <Input
+          id='shortBreakTime'
+          label='Descanso curto'
+          ref={shortBreakTimeInput}
+          defaultValue={state.config.shortBreakTime}
+          type='number'
+        />
+
+        <Input
+          id='longBreakTime'
+          label='Descanso longo'
+          ref={longBreakTimeInput}
+          defaultValue={state.config.longBreakTime}
+          type='number'
+        />
+
+        <Button
+          icon={<SaveIcon />}
+          aria-label='Salvar configurações'
+          title='Salvar configurações'
+        />
+      </Form>
     </Container>
   );
 }

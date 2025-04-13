@@ -6,7 +6,7 @@
   max-width: 98rem;
   margin: 0 auto;
 }
-.container * {
+.container {
   place-items: center;
 }
 .content {
