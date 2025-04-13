@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { APP_NAME } from "../../contants";
+import { APP_NAME } from "../../constants";
 import styles from "./styles.module.css";
 
 export function Footer() {

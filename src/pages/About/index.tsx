@@ -1,7 +1,7 @@
 import { Link } from "lucide-react";
 import { useEffect } from "react";
 import Heading from "../../components/Heading";
-import { APP_NAME } from "../../contants";
+import { APP_NAME } from "../../constants";
 
 export default function About() {
   useEffect(() => {

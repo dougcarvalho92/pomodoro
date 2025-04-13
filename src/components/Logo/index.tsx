@@ -1,5 +1,5 @@
 import { TimerIcon } from "lucide-react";
-import { APP_NAME } from "../../contants";
+import { APP_NAME } from "../../constants";
 import styles from "./styles.module.css";
 
 export default function Logo() {

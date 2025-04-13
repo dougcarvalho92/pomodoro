@@ -1,10 +1,10 @@
-import FormButton from "./FormButton";
-import FormInput from "./FormInput";
-import FormRoot from "./FormRoot";
-
-const Form = {
-  Root: FormRoot,
-  Input: FormInput,
-  Button: FormButton,
-};
-export default Form;
+import { PropsWithChildren } from "react";
+import styles from "./styles.module.css";
+type ButtonProps = React.ComponentProps<"form"> & PropsWithChildren;
+export default function Form({ children, ...props }: ButtonProps) {
+  return (
+    <form {...props} className={styles.form}>
+      {children}
+    </form>
+  );
+}
