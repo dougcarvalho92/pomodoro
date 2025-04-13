@@ -33,6 +33,14 @@ Este é um projeto de um aplicativo Pomodoro desenvolvido em React. Ele ajuda a 
 - JavaScript
 - CSS
 
+## Link do Aplicativo
+
+Acesse o aplicativo Focusly Pomodoro em: [https://focuslypomo.netlify.app/](https://focuslypomo.netlify.app/)
+
+- React
+- JavaScript
+- CSS
+
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
